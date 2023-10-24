@@ -6,6 +6,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
+ROWS_PER_PAGE = 15
+
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -22,8 +24,9 @@ db.create_all()
 @app.route('/')
 def index():
     users = User.query
-    return render_template('basic_table.html', users=users)
+    return render_template('basic_table.html', users=users, rows_per_page=ROWS_PER_PAGE)
 
 
 if __name__ == '__main__':
-    app.run()
+    print(type(users))
+    app.run(host="0.0.0.0")

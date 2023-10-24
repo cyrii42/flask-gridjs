@@ -40,7 +40,11 @@
           selector: (cell, rowIndex, cellIndex) => [0, 1, 4].includes(cellIndex) ? cell : null,
         },
         sort: true,
-        pagination: true,
+        pagination: {
+          pagination: true,
+          limit: {{ rows_per_page }},
+          summary: true
+        }
       }).render(document.getElementById('table'));
     </script>
   </body>
