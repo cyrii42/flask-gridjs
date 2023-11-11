@@ -28,5 +28,4 @@ def index():
 
 
 if __name__ == '__main__':
-    print(type(users))
     app.run(host="0.0.0.0")
